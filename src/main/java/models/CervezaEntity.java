@@ -41,12 +41,12 @@ public class CervezaEntity {
     private Double alcohol;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "tipo_id", nullable = false) // crea la FK en la tabla cerveza
-    private TipoEntity tipo_id;
+    @JoinColumn(name = "tipos", nullable = false) // crea la FK en la tabla cerveza
+    private TipoEntity tipos;
 
     @ManyToMany(fetch = FetchType.EAGER, targetEntity = BarEntity.class, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "cerveza_bar", joinColumns = @JoinColumn(name = "cerveza_id"), inverseJoinColumns = @JoinColumn(name = "bar_id"))
-    private Set<BarEntity> bar_id;
+    @JoinTable(name = "bares", joinColumns = @JoinColumn(name = "cerveza_id"), inverseJoinColumns = @JoinColumn(name = "bar_id"))
+    private Set<BarEntity> bares;
 
 
 }
