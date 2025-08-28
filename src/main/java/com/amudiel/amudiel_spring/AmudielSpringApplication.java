@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan("models")
+@EntityScan("com.amudiel.amudiel_spring.models")
 public class AmudielSpringApplication {
 
 	public static void main(String[] args) {

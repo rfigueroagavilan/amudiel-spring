@@ -1,4 +1,4 @@
-package com.models;
+package com.amudiel.amudiel_spring.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

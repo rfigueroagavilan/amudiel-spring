@@ -1,4 +1,4 @@
-package com.models;
+package com.amudiel.amudiel_spring.models;
 
 public enum ETipo {
     PALE_LAGER,
@@ -23,5 +23,7 @@ public enum ETipo {
     SAISON,
     SOUR,
     GOSE,
-    LAMBIC
+    LAMBIC,
+    MALTA,
+    LAGER
 }

@@ -1,4 +1,4 @@
-package com.models;
+package com.amudiel.amudiel_spring.models;
 
 
 public enum EBar {
@@ -27,5 +27,6 @@ public enum EBar {
     TRENTA_Y_TRES_SUR,
     LA_ESPUMOSA,
     LA_BARRA_INFINITA,
-    MALTERIA_OCULTA
+    MALTERIA_OCULTA,
+    CAÑAMO
 }

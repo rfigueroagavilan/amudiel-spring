@@ -1,4 +1,4 @@
-package com.models;
+package com.amudiel.amudiel_spring.models;
 
 import java.util.Set;
 
@@ -40,7 +40,7 @@ public class CervezaEntity {
     @NotNull
     private Double alcohol;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "tipos", nullable = false) // crea la FK en la tabla cerveza
     private TipoEntity tipos;
 

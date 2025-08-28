@@ -1,12 +1,15 @@
-package com.controllers;
+package com.amudiel.amudiel_spring.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.controllers.requests.CrearCervezaDTO;
-import com.models.BarEntity;
-import com.models.CervezaEntity;
-import com.models.EBar;
-import com.repositories.CervezaRepository;
+import com.amudiel.amudiel_spring.controllers.requests.CrearCervezaDTO;
+import com.amudiel.amudiel_spring.models.BarEntity;
+import com.amudiel.amudiel_spring.models.CervezaEntity;
+import com.amudiel.amudiel_spring.models.EBar;
+import com.amudiel.amudiel_spring.models.ETipo;
+import com.amudiel.amudiel_spring.models.TipoEntity;
+import com.amudiel.amudiel_spring.repositories.CervezaRepository;
+import com.amudiel.amudiel_spring.repositories.TipoRepository;
 
 import jakarta.validation.Valid;
 
@@ -28,6 +31,7 @@ public class PrincipalController {
 
     @Autowired
     private CervezaRepository cervezaRepository;
+    private TipoRepository tipoRepository;
 
     @GetMapping("/holi")
     public String hola(){
@@ -42,6 +46,14 @@ public class PrincipalController {
     @PostMapping("/crearCerveza")
     public ResponseEntity<?> crearCerveza(@Valid @RequestBody CrearCervezaDTO crearCervezaDTO){
 
+            ETipo tipoEnum = ETipo.valueOf(crearCervezaDTO.getTipo().toUpperCase());
+
+            TipoEntity tipoEntity = TipoEntity.builder()
+                .nombre_tipo(tipoEnum)
+                .build();
+
+            
+
             Set<BarEntity> bares = crearCervezaDTO.getBares().stream()
                 .map(bar -> BarEntity.builder()
                     .nombre_bar(EBar.valueOf(bar))
@@ -51,6 +63,7 @@ public class PrincipalController {
             CervezaEntity cervezaEntity = CervezaEntity.builder()
                 .nombre(crearCervezaDTO.getNombre())
                 .alcohol(crearCervezaDTO.getAlcohol())
+                .tipos(tipoEntity)
                 .bares(bares)
                 .build();
 
