@@ -1,4 +1,4 @@
-package models;
+package com.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

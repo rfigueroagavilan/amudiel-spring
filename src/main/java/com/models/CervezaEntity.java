@@ -1,4 +1,4 @@
-package models;
+package com.models;
 
 import java.util.Set;
 
@@ -45,7 +45,7 @@ public class CervezaEntity {
     private TipoEntity tipos;
 
     @ManyToMany(fetch = FetchType.EAGER, targetEntity = BarEntity.class, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "bares", joinColumns = @JoinColumn(name = "cerveza_id"), inverseJoinColumns = @JoinColumn(name = "bar_id"))
+    @JoinTable(name = "bares_cervezas", joinColumns = @JoinColumn(name = "cerveza_id"), inverseJoinColumns = @JoinColumn(name = "bar_id"))
     private Set<BarEntity> bares;
 
 

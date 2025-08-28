@@ -1,4 +1,4 @@
-package models;
+package com.models;
 
 public enum ETipo {
     PALE_LAGER,
